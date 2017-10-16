@@ -60,9 +60,9 @@
         
             <li><a class="toctree-l3" href="#synchronize">Synchronize</a></li>
         
-            <li><a class="toctree-l3" href="#common-workflow-eventdefinitions">Common workflow EventDefinitions</a></li>
+            <li><a class="toctree-l3" href="#event-catalog">Event Catalog</a></li>
         
-            <li><a class="toctree-l3" href="#get-involved">Get involved!</a></li>
+            <li><a class="toctree-l3" href="#get-involved">Get involved</a></li>
         
         </ul>
     
@@ -73,11 +73,6 @@
             <li class="toctree-l1">
 		
     <a class="" href="usersession/">UserSession</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="about/">About</a>
 	    </li>
           
         </ul>
@@ -122,15 +117,17 @@
 <p>An app creates a subscription to the EHR's UserSession and is then notified when the focus of the session changes, for example, by the clinician opening a patient's chart. The app deletes its subscription when it no longer wants to receive notifications.</p>
 <p>[TODO: Simple, attractive image illustrating actors and key interactions]</p>
 <h3 id="ehr-launches-smart-on-fhir-app">EHR launches SMART on FHIR App</h3>
-<p>The EHR launches the app following the standard (SMART on FHIR EHR launch)[http://www.hl7.org/fhir/smart-app-launch#ehr-launch-sequence]  flow, including identifying the current EHR user using OpenID Connect. As part of the app launch, alongside the acess_token the EHR's authorization server identifies the current user's UserSession:</p>
-<p>{
-  "access_token": "i8hweunweunweofiwweoijewiwe",
-  "token_type": "bearer",
-  "expires_in": 3600,
-  "patient":  "123",
-  "encounter": "456",
-  "usersession" : "789"
-}</p>
+<p>The EHR launches the app following the standard (SMART on FHIR EHR launch)[http://www.hl7.org/fhir/smart-app-launch#ehr-launch-sequence]  flow, including identifying the current EHR user using OpenID Connect. As part of the app launch, alongside the acess_token the EHR's authorization server identifies the current user's <a href="./usersession/">UserSession</a>:</p>
+<pre><code>{
+  &quot;access_token&quot;: &quot;i8hweunweunweofiwweoijewiwe&quot;,
+  &quot;token_type&quot;: &quot;bearer&quot;,
+  &quot;expires_in&quot;: 3600,
+  &quot;patient&quot;:  &quot;123&quot;,
+  &quot;encounter&quot;: &quot;456&quot;,
+  &quot;usersession&quot; : &quot;789&quot;
+}
+</code></pre>
+
 <p>Although FHIRcast works best with the SMART on FHIR launch and authorization process, it can also be used with implementation-specific launch and authz protocols.</p>
 <h3 id="app-subscribes-to-usersession-changes">App subscribes to UserSession changes</h3>
 <p>The app finds or creates an EventDefinition that describes the change it wants to be notified of. </p>
@@ -206,7 +203,7 @@ Location: &lt;fhir base url&gt;/Subscription/sub00001
 <pre><code>DELETE &lt;fhir base url&gt;/Subscription/sub00001
 </code></pre>
 
-<h2 id="common-workflow-eventdefinitions">Common workflow EventDefinitions</h2>
+<h2 id="event-catalog">Event Catalog</h2>
 <ol>
 <li>open-patient-chart</li>
 <li>switch-patient-chart</li>
@@ -219,8 +216,9 @@ Location: &lt;fhir base url&gt;/Subscription/sub00001
 <li>user-hibernates</li>
 </ol>
 <p>[TODO - define fhirpath / Event definitions with names for common workflow events]</p>
-<h2 id="get-involved">Get involved!</h2>
-<p>https://chat.fhir.org/#narrow/stream/subscriptions</p>
+<h2 id="get-involved">Get involved</h2>
+<p>https://chat.fhir.org/#narrow/stream/subscriptions
+https://github.com/fhircast</p>
               
             </div>
           </div>
@@ -267,5 +265,5 @@ Location: &lt;fhir base url&gt;/Subscription/sub00001
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-10-15 22:07:45
+Build Date UTC : 2017-10-16 02:33:33
 -->
