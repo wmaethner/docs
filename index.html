@@ -110,14 +110,15 @@
                 <h1 id="fhircast-modern-simple-application-context-synchronization">FHIRcast - <em>modern, simple application context synchronization</em></h1>
 <h2 id="overview">Overview</h2>
 <p>FHIRcast synchronizes healthcare applications in real time to show the same clinical content to a common user. For example, a radiologist often works in three disparate applications at the same time (a radiology information system, a PACS and a dictation system), she wants each of these three systems to display the same study or patient at the same time. </p>
-<p>FHIRcast isn't limited to radiology use-cases. Using <a href="https://www.hl7.org/fhir/subscription.html">FHIR Subscriptions</a>, FHIRcast naturally extends the SMART on FHIR launch protocol to achieve tight integration between disparate, full-featured applications. FHIRcast builds on the <a href="https://en.wikipedia.org/wiki/CCOW">CCOW</a> abstract model to specify an http-based, simple and decentralized context synchronization specification. For simplicity, the below describes an app synchronizing with an EHR, but any user-facing application can synchronize with FHIRcast. While less common,  bidirectional communication between multiple application is also possible.</p>
+<p>FHIRcast isn't limited to radiology use-cases. Using <a href="https://www.hl7.org/fhir/subscription.html">FHIR Subscriptions</a>, FHIRcast naturally extends the SMART on FHIR launch protocol to achieve tight integration between disparate, full-featured applications. FHIRcast builds on the <a href="https://en.wikipedia.org/wiki/CCOW">CCOW</a> abstract model to specify an http-based, simple and decentralized context synchronization specification. For simplicity, the below describes an app synchronizing with an EHR, but any user-facing application can synchronize with FHIRcast. While less common,  bidirectional communication between multiple applications is also possible.</p>
 <h3 id="why">Why?</h3>
-<p>The large number of vendor-specific or proprietary context synchronization methods in production use limit the industry's ability to enhance the large number of integrations currently in production. In practice, these integrations are decentralized and simple. </p>
+<p>The large number of vendor-specific or proprietary context synchronization methods in production use limit the industry's ability to enhance the very large number of integrations currently in production. In practice, these integrations are decentralized and simple. </p>
 <h2 id="synchronize">Synchronize</h2>
 <p>An app creates a subscription to the EHR's UserSession and is then notified when the focus of the session changes, for example, by the clinician opening a patient's chart. The app deletes its subscription when it no longer wants to receive notifications.</p>
 <p>[TODO: Simple, attractive image illustrating actors and key interactions]</p>
 <h3 id="ehr-launches-smart-on-fhir-app">EHR launches SMART on FHIR App</h3>
-<p>The EHR launches the app following the standard (SMART on FHIR EHR launch)[http://www.hl7.org/fhir/smart-app-launch#ehr-launch-sequence]  flow, including identifying the current EHR user using OpenID Connect. As part of the app launch, alongside the acess_token the EHR's authorization server identifies the current user's <a href="./usersession/">UserSession</a>:</p>
+<p>The EHR launches the app following the standard <a href="http://www.hl7.org/fhir/smart-app-launch#ehr-launch-sequence">SMART on FHIR EHR launch</a> flow, including identifying the current EHR user using OpenID Connect. As part of the app launch, alongside the acess_token the EHR's authorization server identifies the current user's <a href="./usersession/">UserSession</a>:</p>
+<h4 id="smart-launch-parameters-include-usersession">SMART launch parameters include usersession</h4>
 <pre><code>{
   &quot;access_token&quot;: &quot;i8hweunweunweofiwweoijewiwe&quot;,
   &quot;token_type&quot;: &quot;bearer&quot;,
@@ -217,8 +218,10 @@ Location: &lt;fhir base url&gt;/Subscription/sub00001
 </ol>
 <p>[TODO - define fhirpath / Event definitions with names for common workflow events]</p>
 <h2 id="get-involved">Get involved</h2>
-<p>https://chat.fhir.org/#narrow/stream/subscriptions
-https://github.com/fhircast</p>
+<ul>
+<li><a href="https://github.com/fhircast">Log issues, contribute via github</a></li>
+<li><a href="https://chat.fhir.org/#narrow/stream/subscriptions">Converse at chat.fhir.org</a></li>
+</ul>
               
             </div>
           </div>
@@ -265,5 +268,5 @@ https://github.com/fhircast</p>
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-10-16 02:33:33
+Build Date UTC : 2017-10-16 03:26:45
 -->
